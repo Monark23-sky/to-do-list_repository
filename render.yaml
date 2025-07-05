@@ -1,13 +1,17 @@
 services:
   - type: web
-    name: myapp
+    name: myapp  # ← Change this to your Render app name if different
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn myproject.wsgi
     autoDeploy: true
+
+    preDeployCommand: python manage.py migrate
+
     envVars:
       - key: DEBUG
         value: False
-      # Add your other environment variables here
-
-    preDeployCommand: python manage.py migrate
+      - key: SECRET_KEY
+        value: Monark@98793
+      - key: ALLOWED_HOSTS
+        value: to-do-list-repository-1.onrender.com
