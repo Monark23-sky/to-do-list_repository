@@ -41,7 +41,7 @@ class User(AbstractBaseUser,PermissionsMixin):
         ('USER','USER'),
         ('ADMIN','ADMIN')
     ]
-    role = models.CharField(max_length=50,choices=roles,default='USER')
+    role = models.CharField(max_length=50,choices=roles,default='USER',null=True,blank=True)
     USERNAME_FIELD = "user_name"
     REQUIRED_FIELDS = []    
 
