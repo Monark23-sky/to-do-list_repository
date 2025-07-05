@@ -185,11 +185,11 @@ def streak(request):
 @api_view(['GET'])      
 def create_superuser(request):
     User = get_user_model()
-    if not User.objects.filter(username='admin').exists():
+    if not User.objects.filter(user_name='admin').exists():
         User.objects.create_superuser(
-            username='admin',
-            email='admin@example.com',
-            password='adminpass123'
+            user_name='admin',
+            email='monarkprajapati@gmail.com',
+            password='Monark@98793'
         )
         return HttpResponse("Superuser created successfully.")
     return HttpResponse("Superuser already exists.")
