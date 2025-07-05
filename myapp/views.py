@@ -181,6 +181,16 @@ def due_task(request):
 @api_view(['POST'])
 def streak(request):
     pass
-      
 
+@api_view(['GET'])      
+def create_superuser(request):
+    User = get_user_model()
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser(
+            username='admin',
+            email='admin@example.com',
+            password='adminpass123'
+        )
+        return HttpResponse("Superuser created successfully.")
+    return HttpResponse("Superuser already exists.")
         
