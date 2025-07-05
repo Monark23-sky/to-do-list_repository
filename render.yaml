@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: myapp
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn myproject.wsgi
+    autoDeploy: true
+    envVars:
+      - key: DEBUG
+        value: False
+      # Add your other environment variables here
+
+    preDeployCommand: python manage.py migrate
