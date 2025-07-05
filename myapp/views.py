@@ -194,4 +194,14 @@ def create_superuser(request):
         )
         return HttpResponse("Superuser created successfully.")
     return HttpResponse("Superuser already exists.")
+
+from django.core.management import call_command
+
+@api_view(['GET'])
+def run_migrations_api(request):
+    try:
+        call_command('migrate')
+        return Response({"message": "Migrations applied successfully."})
+    except Exception as e:
+        return Response({"error": str(e)})
         

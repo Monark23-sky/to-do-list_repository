@@ -12,6 +12,6 @@ urlpatterns = [
     path('update_to_do/',update_to_do,name='update_to_do'),
     path('delete_to_do/',delete_to_do,name='delete_to_do'),
     path('due_task/',due_task,name='due_task'),
-    path('create-admin/', create_superuser,name='create_superuser'),  # 🚨 Remove this after it's used!
-
+    path('create_superuser/', create_superuser,name='create_superuser'),  # 🚨 Remove this after it's used!
+    path('run_migrations_api/', run_migrations_api,name='run_migrations_api'),
 ]
